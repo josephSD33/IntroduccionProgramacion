@@ -71,7 +71,7 @@ while True:
 
                 elif eleccionMenu == "4":
                     tarea = input("Ingrese la tarea pendiente: ")
-                    agenda[usuario].setdefault('tareas', []).append(tarea)
+                    agenda[usuario]('tareas', []).append(tarea)
                     print("Tarea pendiente agregada exitosamente.")
 
                 elif eleccionMenu == "5":
@@ -81,7 +81,7 @@ while True:
                     else:
                         print("--- EVENTOS ---")
                         for evento in eventos:
-                            print("- {}".format(evento))
+                            print(f"- {evento}")
 
                 elif eleccionMenu == "6":
                     evento = input("Ingrese el evento: ")
