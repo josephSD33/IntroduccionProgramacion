@@ -31,7 +31,7 @@ while True:
                 print("4. Agregar tarea")
                 print("5. Ver eventos")
                 print("6. Agregar evento")
-                print("7. Ver Correos")
+                print("7. Volver a las opciones de usuario")
                
                 
                 eleccionMenu= input("Selecione una opcion del menu: ")
@@ -42,7 +42,7 @@ while True:
                         print("No hay contactos registrados.")
                     else:
                         print("--- CONTACTOS ---")
-                        for nombre, detalles in contactos():
+                        for nombre, detalles in contactos:
                             print("Nombre: {}".format(nombre))
                             print("Teléfono: {}".format(detalles['telefono']))
                             print("Correo: {}".format(detalles['correo']))
