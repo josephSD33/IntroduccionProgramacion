@@ -1,27 +1,25 @@
-#usuario
 agenda = {}
-#opciones para usuario 
+
 while True:
     print("\n--- AGENDA ---")
     print("1. Crear nuevo usuario")
     print("2. Acceder a un usuario existente")
     print("3. Salir")
     
-    opcion = input("Seleccione una opción: ").strip()
-    import os 
-    os.system("cls")
+    opcion = input("Seleccione una opción: ").strip()  
+    
     if opcion == "1":
-        usuario = input("Ingrese el nombre del nuevo usuario: ").strip()
+        usuario = input("Ingrese el nombre del nuevo usuario: ").strip()  
         agenda[usuario] = {
             "contactos": {},
             "tareas": [],
             "eventos": [],
             "correos": {}
         }
-        print(F"Usuario {usuario} fue creado")
+        print(f"Usuario {usuario} fue creado")
     
-    elif opcion=="2":
-        usuario= input("Ingrese en nombre del usuario").strip()
+    elif opcion == "2":
+        usuario = input("Ingrese el nombre del usuario: ").strip()  
         
         if usuario in agenda:
              while True:
@@ -34,9 +32,8 @@ while True:
                 print("6. Agregar evento")
                 print("7. Volver a las opciones de usuario")
                
+                eleccionMenu = input("Seleccione una opción del menú: ").strip()  
                 
-                eleccionMenu= input("Selecione una opcion del menu: ").strip()
-                os.system("cls")
                 if eleccionMenu == "1":
                     contactos = agenda[usuario]["contactos"]
                     if len(contactos) == 0:
@@ -47,18 +44,19 @@ while True:
                             print("Nombre: {}".format(nombre))
                             print("Teléfono: {}".format(detalles['telefono']))
                             print("Correo: {}".format(detalles['correo']))
+                            print()
 
                 elif eleccionMenu == "2":
-                    nombrecontacto = input("Ingrese el nombre del contacto: ")
-                    telefono = input("Ingrese el número de teléfono: ")
-                    correo = input("Ingrese el correo electrónico: ")
+                    nombrecontacto = input("Ingrese el nombre del contacto: ").strip()  
+                    telefono = input("Ingrese el número de teléfono: ").strip()  
+                    correo = input("Ingrese el correo electrónico: ").strip()  
                     
                     agenda[usuario]['contactos'][nombrecontacto] = {
                         'telefono': telefono,
                         'correo': correo
                     }
                     
-                    print(F"Contacto '{nombrecontacto}' agregado exitosamente.")
+                    print(f"Contacto '{nombrecontacto}' agregado exitosamente.")
 
                 elif eleccionMenu == "3":
                     tareas = agenda[usuario]['tareas']
@@ -70,7 +68,7 @@ while True:
                             print(f"- {tarea}")
 
                 elif eleccionMenu == "4":
-                    tarea = input("Ingrese la tarea pendiente: ")
+                    tarea = input("Ingrese la tarea pendiente: ").strip()  
                     agenda[usuario]['tareas'].append(tarea)
                     print("Tarea pendiente agregada exitosamente.")
 
@@ -81,10 +79,10 @@ while True:
                     else:
                         print("--- EVENTOS ---")
                         for evento in eventos:
-                            print(f"- {evento}")
+                            print("- {}".format(evento))
 
                 elif eleccionMenu == "6":
-                    evento = input("Ingrese el evento: ")
+                    evento = input("Ingrese el evento: ").strip()  
                     agenda[usuario]['eventos'].append(evento)
                     print("Evento agregado exitosamente.")
 
@@ -94,9 +92,7 @@ while True:
                     print("Opción inválida. Intente nuevamente.") 
         else:
             print("Usuario no encontrado. Por favor, cree un nuevo usuario.")
-    elif opcion =="3":
+    elif opcion == "3":
         break
-    
     else:
         print("Opción inválida. Intente nuevamente.")
-    
