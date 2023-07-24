@@ -8,7 +8,8 @@ while True:
     print("3. Salir")
     
     opcion = input("Seleccione una opción: ")
-    
+    import os 
+    os.system("cls")
     if opcion == "1":
         usuario = input("Ingrese el nombre del nuevo usuario: ")
         agenda[usuario] = {
@@ -35,18 +36,17 @@ while True:
                
                 
                 eleccionMenu= input("Selecione una opcion del menu: ")
-                
+                os.system("cls")
                 if eleccionMenu == "1":
                     contactos = agenda[usuario]["contactos"]
                     if len(contactos) == 0:
                         print("No hay contactos registrados.")
                     else:
                         print("--- CONTACTOS ---")
-                        for nombre, detalles in contactos:
+                        for nombre, detalles in contactos.items():
                             print("Nombre: {}".format(nombre))
                             print("Teléfono: {}".format(detalles['telefono']))
                             print("Correo: {}".format(detalles['correo']))
-                            print()
 
                 elif eleccionMenu == "2":
                     nombrecontacto = input("Ingrese el nombre del contacto: ")
@@ -71,7 +71,7 @@ while True:
 
                 elif eleccionMenu == "4":
                     tarea = input("Ingrese la tarea pendiente: ")
-                    agenda[usuario]('tareas', []).append(tarea)
+                    agenda[usuario]['tareas'].append(tarea)
                     print("Tarea pendiente agregada exitosamente.")
 
                 elif eleccionMenu == "5":
