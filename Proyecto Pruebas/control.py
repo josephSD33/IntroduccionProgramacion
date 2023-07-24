@@ -49,9 +49,9 @@ while True:
                             print("Correo: {}".format(detalles['correo']))
 
                 elif eleccionMenu == "2":
-                    nombrecontacto = input("Ingrese el nombre del contacto: ")
-                    telefono = input("Ingrese el número de teléfono: ")
-                    correo = input("Ingrese el correo electrónico: ")
+                    nombrecontacto = input("Ingrese el nombre del contacto: ").strip()
+                    telefono = input("Ingrese el número de teléfono: ").strip()
+                    correo = input("Ingrese el correo electrónico: ").strip()
                     
                     agenda[usuario]['contactos'][nombrecontacto] = {
                         'telefono': telefono,
@@ -70,7 +70,7 @@ while True:
                             print(f"- {tarea}")
 
                 elif eleccionMenu == "4":
-                    tarea = input("Ingrese la tarea pendiente: ")
+                    tarea = input("Ingrese la tarea pendiente: ").strip()
                     agenda[usuario]['tareas'].append(tarea)
                     print("Tarea pendiente agregada exitosamente.")
 
@@ -84,7 +84,7 @@ while True:
                             print(f"- {evento}")
 
                 elif eleccionMenu == "6":
-                    evento = input("Ingrese el evento: ")
+                    evento = input("Ingrese el evento: ").strip()
                     agenda[usuario]['eventos'].append(evento)
                     print("Evento agregado exitosamente.")
 
