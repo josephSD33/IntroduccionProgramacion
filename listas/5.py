@@ -28,7 +28,7 @@ def ingresar():
     tt.Button(ventanaing, text="Ingresar", command=lambda: confirmar(usuarioing.get())).pack()
     
 
-# Esta funcion sirve para verficar la informacion del usuario que ah ingresado, verifica el nombre y el rol 
+# Esta funcion sirve para verficar la informacion del usuario que ah ingresado, verifica el nombre y el rol, si todo es correcto envia al usuario a la ventana que correponda a su rol
 def confirmar(usuario):
     if usuario in usuarios:
         rol = usuarios[usuario]
@@ -41,6 +41,7 @@ def confirmar(usuario):
     else:
         messagebox.showerror("Error", "Usuario no encontrado.")
 
+# menu del administrador, puede ingresar a las funciones que permiten crear seccion y consultarlas 
 def admin():
     global ventaadmin
     ventaadmin = tt.Toplevel(ventana)
@@ -55,7 +56,7 @@ def admin():
     ventanaing.destroy()
     
 
-
+# Menu oficinista, puede ingresar a las funciones que permiten inscribir estudiantes y consultar las secciones 
 def oficinista():
     global ventaofi
     ventaofi = tt.Toplevel(ventana)
@@ -68,7 +69,7 @@ def oficinista():
     ventanaing.destroy()
 
    
-
+# Esta funcion sirve para crear un usuarion nuevo, se debe ingresar el nombre del usuario y su rol, al guardar pasa estos datos a la funcion guardar usuario
 def crear():
     global ventanacrear
     ventanacrear = tt.Toplevel(ventana)
@@ -85,11 +86,13 @@ def crear():
 
     tt.Button(ventanacrear, text="Guardar", command=lambda: guardarusuario(usuario.get(), rol.get())).pack()
 
+# Esta funcion guarda los datos y crea el nuevo usuario
 def guardarusuario(usuario, rol):
     usuarios[usuario] = rol
     messagebox.showinfo("Guardado", "Usuario guardado exitosamente.")
     ventanacrear.destroy()
 
+# Esta funcion crea las secciones, en ella se ingresa el nombre y la cantidad de cupos que tendra, y pasa estos datos a la funcion de guadar seccion
 def seccion():
     global ventanacrears
     ventanacrears = tt.Toplevel(ventana)
@@ -105,6 +108,7 @@ def seccion():
 
     tt.Button(ventanacrears, text="Guardar", command=lambda: guardarseccion(nombreseccion.get(), cupos.get())).pack()
 
+# aqui se evalua que el nombre de la seccion sea valido y la cantidad de cupos sea mayor que cero, luego de esto guarda la seccion en el programa 
 def guardarseccion(nombreseccion, cupos):
     if nombreseccion and cupos > 0:
         if nombreseccion not in secciones:
@@ -118,7 +122,7 @@ def guardarseccion(nombreseccion, cupos):
     ventaadmin.destroy()
     admin()
 
-
+#funcion de inscribir estudiantes, pide ingresar, nombre, apellido, cedula y la seccion a la que pertenesera, pasa los datos a la funcion guardar inscripcion 
 def inscribirestudiante():
     global ventanainscribir
     ventanainscribir = tt.Toplevel(ventana)
@@ -140,6 +144,7 @@ def inscribirestudiante():
 
     tt.Button(ventanainscribir, text="Inscribir", command=lambda: guardarinscripcion(nombre.get(), apellido.get(), cedula.get(), seccion_var.get())).pack()
 
+#recibe la informacion, evalua si el estudiante ya existe, si la seccion no tiene cupos o si no existe, luego guarda la informacion en el programa 
 def guardarinscripcion(nombre, apellido, cedula, seccion):
     if seccion and nombre and apellido and cedula:
         if seccion in secciones:
@@ -160,7 +165,7 @@ def guardarinscripcion(nombre, apellido, cedula, seccion):
     oficinista()
 
 
-
+# esta funcion muestra la informacion de la secciones, los estudintes incritos y los cupos
 def versecciones():
     ventanasecciones = tt.Toplevel(ventana)
     ventanasecciones.geometry("400x300")
@@ -182,3 +187,4 @@ def versecciones():
 
 
 inicio()
+#pruebas del examen 
